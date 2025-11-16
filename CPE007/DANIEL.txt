@@ -1,0 +1,127 @@
+#include <iostream> //  Libraries to handle input, output and text of the program
+#include <string>
+using namespace std;
+
+int main() {
+    string name; 
+    int number;
+    float money;
+    float needsP, wantsP, savingsP, totalP; // Percentage Variables
+    float needsA, wantsA, savingsA; // Allowance Variables
+    
+    
+ 
+
+    cout << "\n================= WELCOME TO ALLOWANCE MANAGER SYSTEM ==================\n\n";
+        
+    cout << "------------------------- Information Details --------------------------\n";
+    cout << "Enter your name: ";
+    getline(cin, name);
+    cout << "Type your ID Number: ";
+    cin >> number;
+    cout << "Enter your daily/weekly/monthly Allowance (₱): ";
+    cin >> money;
+
+    int choice;
+    
+        do {
+            cout << "\n========================= Choose Budget Plan ===========================\n";
+            cout << "1. Golden Rule (50% Needs, 30% Wants, 20% Savings)\n";
+            cout << "2. Piggy Bank (30% Needs, 20% Wants, 50% Savings)\n";
+            cout << "3. Luxurious Plan (30% Needs, 50% Wants, 20% Savings)\n";
+            cout << "4. Necessity Plan (60% Needs, 20% Wants, 20% Savings)\n";
+            cout << "5. Manual Input (%)\n";
+            cout << "0. Exit\n";
+            cout << "========================================================================\n\n";
+            cout << "Enter your choice: ";
+            cin >> choice;
+
+            switch (choice) {
+                case 1: {
+                    needsP = 50;
+                    wantsP = 30;
+                    savingsP = 20;
+                    needsA = (needsP / 100) * money;
+                    wantsA = (wantsP / 100) * money;
+                    savingsA = (savingsP / 100) * money;
+            cout << "\n============================= Golden Rule =============================\n\n";
+                    cout << "Needs: ₱" << needsA << " (" << needsP << "%)\n";
+                    cout << "Wants: ₱" << wantsA << " (" << wantsP << "%)\n";
+                    cout << "Savings: ₱" << savingsA << " (" << savingsP << "%)\n";
+                    break;
+                }
+                case 2: {
+                    needsP = 30;
+                    wantsP = 20;
+                    savingsP = 50;
+                    needsA = (needsP / 100) * money;
+                    wantsA = (wantsP / 100) * money;
+                    savingsA = (savingsP / 100) * money;
+            cout << "\n============================== Piggy Bank ==============================\n\n";
+                    cout << "Needs: ₱" << needsA << " (" << needsP << "%)\n";
+                    cout << "Wants: ₱" << wantsA << " (" << wantsP << "%)\n";
+                    cout << "Savings: ₱" << savingsA << " (" << savingsP << "%)\n";
+                    break;
+                }
+                case 3: {
+                    needsP = 30;
+                    wantsP = 50;
+                    savingsP = 20;
+                    needsA = (needsP / 100) * money;
+                    wantsA = (wantsP / 100) * money;
+                    savingsA = (savingsP / 100) * money;
+            cout << "\n============================ Luxurious Plan ============================\n\n";
+                    cout << "Needs: ₱" << needsA << " (" << needsP << "%)\n";
+                    cout << "Wants: ₱" << wantsA << " (" << wantsP << "%)\n";
+                    cout << "Savings: ₱" << savingsA << " (" << savingsP << "%)\n";
+                    break;
+                }
+                case 4: {
+                    needsP = 60;
+                    wantsP = 20;
+                    savingsP = 20;
+                    needsA = (needsP / 100) * money;
+                    wantsA = (wantsP / 100) * money;
+                    savingsA = (savingsP / 100) * money;
+            cout << "\n============================ Necessity Plan ============================\n\n";
+                    cout << "Needs: ₱" << needsA << " (" << needsP << "%)\n";
+                    cout << "Wants: ₱" << wantsA << " (" << wantsP << "%)\n";
+                    cout << "Savings: ₱" << savingsA << " (" << savingsP << "%)\n";
+                    break;
+                }
+                case 5: {
+            cout << "\n============================= Manual Input =============================\n";
+                    cout << "\tENTER % for NEEDS and WANTS, REMAINING will be put into SAVINGS.\n\n";
+                    cout << "% Needs: ";
+                    cin >> needsP;
+                    cout << "% Wants: ";
+                    cin >> wantsP;
+                    savingsP = 100-(needsP + wantsP);
+                    cout << "% Savings: " << savingsP << endl;
+                    if (needsP + wantsP > 100) {
+                        cout << "Error: Your total percentage exceeds 100%!\n";
+                        break;
+                    }
+                    needsA = (needsP / 100) * money;
+                    wantsA = (wantsP / 100) * money;
+                    savingsA = (savingsP / 100) * money;
+            cout << "\n========================== Your Custom Budget ==========================\n";
+                    cout << "Needs: ₱" << needsA << endl;
+                    cout << "Wants: ₱" << wantsA << endl;
+                    cout << "Savings: ₱" << savingsA << endl;
+                    break;
+                }
+                case 0:
+                    cout << "Exiting system...\n";
+                    break;
+                default:
+                    cout << "Invalid choice. Please try again.\n";
+            }
+        } while (choice != 0);
+     
+
+
+    cout << "\nThank you, " << name << " (ID: " << number << ") for using our system!\n";
+    return 0;
+}
+
